@@ -61,17 +61,17 @@ const Gallery = () => {
 							max="6"
 							placeholder="кіл-ть направлень"
 						/>
-						{/* <input
+						<input
 							className={time}
 							type="number"
 							placeholder="час"
-						/> */}
-						<LocalizationProvider dateAdapter={AdapterDayjs}>
+						/>
+						{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
 
 							<MobileTimePicker
 								ampmInClock={true}
 							/>
-						</LocalizationProvider>
+						</LocalizationProvider> */}
 					</div>
 				))}
 			</div >
