@@ -1,0 +1,22 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    padding: 5px 0;
+
+    & select {
+        max-width: 100px;
+    }
+
+    & input {
+        max-width: 80px;
+    }
+}
+
+.step {
+    max-width: 50px;
+}
+
+// .time {
+//     max-width: 100px;
+// }
