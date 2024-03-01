@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    gap: 10px;
+
+    @media print {
+        display: flex;
+        flex-direction: row;
+    }
+
+    // & input,
+    // label {
+    //     color: white;
+    //     border-color: white;
+    //     outline: white;
+    // }
+}
