@@ -15,7 +15,7 @@ const galleryListOption = [
 	{ gallery: 'Класичний 25м тир' },
 ]
 
-const { row, step, time } = style
+const { container, label, row, step, time } = style
 
 const Gallery = () => {
 	const [galleryList, setGalleryList] = useState([{ gallery: '' }])
@@ -32,8 +32,8 @@ const Gallery = () => {
 	}
 
 	return (
-		<>
-			<h2>Галерея</h2>
+		<div className={container}>
+			<h2 className={label}>Галерея</h2>
 			<div >
 				{galleryList.map((item, index) => (
 					<div key={index} className={row}>
@@ -82,7 +82,7 @@ const Gallery = () => {
 				додати галерею
 			</button>
 
-		</>
+		</div>
 	)
 };
 

@@ -36,6 +36,13 @@ const Form = () => {
 		console.log(name)
 	}
 
+
+	// 
+
+
+
+	//   
+
 	return (
 		<>
 			<div className={style.container}>
@@ -49,6 +56,9 @@ const Form = () => {
 						<label htmlFor="individually">Індивідуальне заняття </label>
 						<input type="checkbox" id="individually" />
 					</div>
+
+
+
 
 					<TimePicker />
 
