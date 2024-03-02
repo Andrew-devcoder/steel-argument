@@ -78,7 +78,7 @@ const Form = () => {
 				<button
 					onClick={handlePrint}
 				>
-					print form
+					На друк
 				</button>
 			</div>
 

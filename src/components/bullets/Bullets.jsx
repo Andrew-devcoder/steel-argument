@@ -2,6 +2,7 @@
 import { useState } from "react";
 import style from "./Bullets.module.scss"
 
+const { container, label, button } = style
 
 const Bullets = () => {
 
@@ -12,9 +13,9 @@ const Bullets = () => {
 		setAmmoList([...ammoList, { article: '', quantity: '' }]);
 	};
 	return (
-		<>
+		<div className={container}>
 
-			<h2>Набої </h2>
+			<h2 className={label}>Набої </h2>
 			<div>
 				<input type="number" placeholder="артикул" />
 				<input type="number" placeholder="кількість" />
@@ -44,10 +45,13 @@ const Bullets = () => {
 				</div>
 			))}
 
-			<button onClick={(e) => addAmmoBlock(e)}>
+			<button
+				className={button}
+				onClick={(e) => addAmmoBlock(e)}
+			>
 				додати набої
 			</button>
-		</>
+		</div>
 	)
 };
 

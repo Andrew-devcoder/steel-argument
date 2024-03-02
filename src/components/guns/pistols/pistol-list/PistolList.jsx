@@ -9,6 +9,8 @@ const pistolListOption = [
 	{ pistol: 'glock 43x' }
 ]
 
+const { container, label } = style
+
 const PistolList = () => {
 	const [pistolList, setPistolList] = useState([{ pistol: '' }]);
 
@@ -25,8 +27,8 @@ const PistolList = () => {
 	}
 
 	return (
-		<>
-			<h2>Зброя</h2>
+		<div className={container}>
+			<h2 className={label}>Зброя</h2>
 
 			<div>
 				{pistolList.map((item, index) => (
@@ -52,7 +54,7 @@ const PistolList = () => {
 			>
 				додати пістолет
 			</button>
-		</>
+		</div>
 	)
 };
 
