@@ -52,16 +52,30 @@ const TimePicker = () => {
 
 				<select name="timeH" >
 					{timeH.map((obj, index) => (
-
 						<option key={index} value={obj.time}>
 							{obj.time}
 						</option>
 					))}
 				</select>
-
+				<div>:</div>
 				<select name="timeM" >
 					{timeM.map((obj, index) => (
-
+						<option key={index} value={obj.time}>
+							{obj.time}
+						</option>
+					))}
+				</select>
+				<div> - </div>
+				<select name="timeH" >
+					{timeH.map((obj, index) => (
+						<option key={index} value={obj.time}>
+							{obj.time}
+						</option>
+					))}
+				</select>
+				<div>:</div>
+				<select name="timeM" >
+					{timeM.map((obj, index) => (
 						<option key={index} value={obj.time}>
 							{obj.time}
 						</option>

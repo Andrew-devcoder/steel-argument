@@ -65,6 +65,11 @@
     textarea,
     select {
         border: none;
+        appearance: none;
+
+        &::-ms-expand {
+            // display: none;
+        }
     }
 
     button {

@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Gallery.module.scss"
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -18,6 +18,23 @@ const galleryListOption = [
 const { container, label, row, step, time } = style
 
 const Gallery = () => {
+	const [time, setTime] = useState([]);
+
+	const addToTime = () => {
+		const update = [];
+
+		for (let i = 0; i < 10; i++) {
+			update.push({ hour: i, zore: "00", thirty: "30" });
+		}
+
+		setTime(update);
+	};
+
+	useEffect(() => {
+		addToTime();
+		console.log(time);
+	}, []);
+
 	const [galleryList, setGalleryList] = useState([{ gallery: '' }])
 	const handleGallery = (e, index) => {
 		const selectedGallery = e.target.value
@@ -61,11 +78,45 @@ const Gallery = () => {
 							max="6"
 							placeholder="кіл-ть направлень"
 						/>
-						<input
+						{/* <input
 							className={time}
 							type="number"
 							placeholder="час"
-						/>
+						/> */}
+
+						<select>
+							{time.map((item, index) => {
+
+								if (item.hour == 0) {
+									const formattedTime = `${item.hour}:${item.zore}`
+
+									return (
+										<option
+											key={index}
+											value={formattedTime}
+										>
+											{formattedTime}
+										</option>
+									)
+								} else {
+									const formattedTime = `${item.hour}:${item.thirty}`
+
+									return (
+										<option
+											key={index}
+											value={formattedTime}
+										>
+											{formattedTime}
+										</option>
+									)
+
+								}
+							}
+
+							)}
+						</select>
+
+
 						{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
 
 							<MobileTimePicker
@@ -82,7 +133,7 @@ const Gallery = () => {
 				додати галерею
 			</button>
 
-		</div>
+		</div >
 	)
 };
 

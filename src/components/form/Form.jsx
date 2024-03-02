@@ -36,29 +36,19 @@ const Form = () => {
 		console.log(name)
 	}
 
-
-	// 
-
-
-
-	//   
-
 	return (
 		<>
 			<div className={style.container}>
 				<form onSubmit={handleSubmit}>
 
-					<div>{dateToday} {finishTime}  ім'я інструктора</div>
+					<div>{dateToday} {finishTime}   <input type="text" placeholder="ім'я інструктора" /></div>
 
-					<label htmlFor="name">Призвіще клієнта: <input type="text" value={name} onChange={(e) => setName(e.target.value)} /></label>
+					<div><input placeholder="Призвіще клієнта" type="text" value={name} onChange={(e) => setName(e.target.value)} /></div>
 
 					<div>
 						<label htmlFor="individually">Індивідуальне заняття </label>
 						<input type="checkbox" id="individually" />
 					</div>
-
-
-
 
 					<TimePicker />
 
