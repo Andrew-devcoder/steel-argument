@@ -1,5 +1,6 @@
 .container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     padding: 20px 10px;
     border: 1px solid grey;
     border-radius: 8px;
@@ -41,4 +42,9 @@
 
 .time {
     max-width: 100px;
+}
+
+button {
+    margin: 15px 0 0;
+    margin-left: auto;
 }
