@@ -88,7 +88,7 @@ const Gallery = () => {
 							{time.map((item, index) => {
 
 								if (item.hour == 0) {
-									const formattedTime = `${item.hour}:${item.zore}`
+									const formattedTime = `${item.hour}:${item.thirty}`
 
 									return (
 										<option
@@ -99,15 +99,25 @@ const Gallery = () => {
 										</option>
 									)
 								} else {
-									const formattedTime = `${item.hour}:${item.thirty}`
+									const formattedTimeZore = `${item.hour}:${item.zore}`
+									const formattedTimeThirty = `${item.hour}:${item.thirty}`
 
 									return (
-										<option
-											key={index}
-											value={formattedTime}
-										>
-											{formattedTime}
-										</option>
+										<>
+
+											<option
+												key={index}
+												value={formattedTimeZore}
+											>
+												{formattedTimeZore}
+											</option>
+											<option
+												key={index}
+												value={formattedTimeThirty}
+											>
+												{formattedTimeThirty}
+											</option>
+										</>
 									)
 
 								}
