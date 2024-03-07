@@ -1,107 +1,80 @@
 import { useEffect, useState } from "react";
-import style from "./Gallery.module.scss"
-import { useGallery } from "../../state/state";
+import { usePersonStore } from "../../state/state.tsx";
 import { SelectGallery } from "./select-gallery/SelectGallery";
+
+import { RxCrossCircled } from "react-icons/rx";
+
+import style from "./Gallery.module.scss"
+import { SelectTimeWorkGallery } from "./select-time-work-gallery/SelectTimeWorkGallery";
 
 const { container, label, row, step, time } = style
 
 const Gallery = () => {
-	const { galleryBlock, addEmptyGalleryBlock, delGallery } = useGallery()
-
-	// gen time for row gallerry
-	const [time, setTime] = useState([]);
-	const addToTime = () => {
-		const update = [];
-		for (let i = 0; i < 5; i++) {
-			update.push({ hour: i, zore: "00", thirty: "30" });
-		}
-		setTime(update);
-	};
-	useEffect(() => {
-		addToTime();
-		console.log(time);
-	}, []);
-	// 
-
+	// const { galleryBlock, addEmptyGalleryBlock, delGallery } = useGallery()
+	const firstName = usePersonStore((state) => state.firstName)
+	const updateFirstName = usePersonStore((state) => state.updateFirstName)
 
 	const addGalleryList = (e) => {
 		e.preventDefault()
-		addEmptyGalleryBlock()
+		// addEmptyGalleryBlock()
+	}
+
+	const handleDeleteRow = (index) => {
+		// delGallery(index)
 	}
 
 	return (
-		<div className={container}>
-			<h2 className={label}>Галерея</h2>
-			<div>
-				{galleryBlock.map((item, index) => (
-					<div key={index} className={row}>
-						{console.log(item)}
+		<>
+			<input type="text"
+				onChange={(e) => updateFirstName(e.currentTarget.value)}
+				value={firstName}
+			/>
 
-						<SelectGallery item={item} />
+			<p>hey fucking {firstName}!</p>
+		</>
 
-						<input
-							className={step}
-							type="number"
-							step="1"
-							min="1"
-							max="6"
-							placeholder="кіл-ть направлень"
-						/>
-						<select>
-							{time.map((item) => {
-								if (item.hour == 0) {
-									const formattedTime = `${item.hour}:${item.thirty}`
+		// <div className={container}>
+		// 	<h2 className={label}>Галерея</h2>
+		// 	<div>
+		// 		{galleryBlock.map((item, index) => {
+		// 			const key = Math.floor(Math.random() * 10000)
+		// 			return (
+		// 				<div key={key} className={row}>
+		// 					{console.log(item)}
 
-									return (
-										<option
-											key={`option-${Math.floor(Math.random() * 10000)}`}
-											value={formattedTime}
-										>
-											{formattedTime}
-										</option>
-									)
-								} else {
-									const formattedTimeZore = `${item.hour}:${item.zore}`
-									const formattedTimeThirty = `${item.hour}:${item.thirty}`
+		// 					<SelectGallery item={item} />
 
-									return (
-										<optgroup
-											key={`option-${Math.floor(Math.random() * 10000)}`}
-										>
+		// 					<input
+		// 						className={step}
+		// 						type="number"
+		// 						step="1"
+		// 						min="1"
+		// 						max="6"
+		// 						placeholder="кіл-ть направлень"
+		// 					/>
 
-											<option
-												value={formattedTimeZore}
-											>
-												{formattedTimeZore}
-											</option>
-											<option
-												value={formattedTimeThirty}
-											>
-												{formattedTimeThirty}
-											</option>
-										</optgroup>
-									)
+		// 					<SelectTimeWorkGallery item={item} />
 
-								}
-							}
+		// 					<RxCrossCircled
+		// 						onClick={() => handleDeleteRow(index)}
+		// 					/>
 
-							)}
-						</select>
+		// 					{/* <button type="button" onClick={() => handleDeleteRow(index)}>x</button> */}
 
-						<button onClick={() => handleDeleteRow(index)}>x</button>
+		// 				</div>
+		// 			)
+		// 		})}
 
-					</div>
-				))}
+		// 	</div>
 
-			</div >
+		// 	< button
+		// 		onClick={(e) => addGalleryList(e)}
+		// 	>
+		// 		додати галерею
+		// 	</ button>
 
-			<button
-				onClick={(e) => addGalleryList(e)}
-			>
-				додати галерею
-			</button>
+		// </div >
 
-		</div >
 	)
 };
 

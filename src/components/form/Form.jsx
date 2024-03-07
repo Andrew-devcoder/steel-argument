@@ -32,7 +32,7 @@ const Form = () => {
 	const [name, setName] = useState('')
 
 	const handleSubmit = (e) => {
-		e.preventDefaukt()
+		e.preventDefault()
 		console.log(name)
 	}
 
