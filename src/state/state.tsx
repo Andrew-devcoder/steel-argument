@@ -40,37 +40,20 @@ const galleryListOption = [
 //     },
 // }));
 
-// type State = {
-//     firstName: string;
-//     // testValue: string;
-//     gallery: string;
-//     galleryListOption: string[];
-// };
+type State = {
+    firstName: string;
+};
 
-// type Action = {
-//     updateFirstName: (firstName: State["firstName"]) => void;
+type Action = {
+    updateFirstName: (firstName: State["firstName"]) => void;
+};
 
-//     // testfunction: (galleryOprion: State["galleryOprion"]) => void;
-// };
+const usePersonStore = create<State & Action>((set) => ({
+    firstName: "",
+    updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
+}));
 
-// const usePersonStore = create<State & Action>((set) => ({
-//     firstName: "",
-//     updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
-
-//     // testValue: "",
-
-//     // testfunction: (testValue) => set(() => ({ testValue: testValue })),
-
-//     // galleryListOption: [
-//     //     { gallery: "Тир 100м" },
-//     //     { gallery: "Тир 100м Рухома мішень" },
-//     //     { gallery: "Практичний малий тир" },
-//     //     { gallery: "Практичний великий тир" },
-//     //     { gallery: "Класичний 25м тир" }
-//     // ];
-// }));
-
-// export { usePersonStore };
+export { usePersonStore };
 
 // test
 
