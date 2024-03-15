@@ -8,37 +8,37 @@ const galleryListOption = [
     { gallery: "Класичний 25м тир" },
 ];
 
-// export const useGallery = create((set) => ({
-//     galleryBlock: [
-//         {
-//             galleryListOption: galleryListOption,
-//             amount: [],
-//             time: [],
-//         },
-//     ],
+export const useGallery = create((set) => ({
+    galleryBlock: [
+        {
+            galleryListOption: galleryListOption,
+            amount: [],
+            time: [],
+        },
+    ],
 
-//     addEmptyGalleryBlock: () => {
-//         set((state) => ({
-//             galleryBlock: [
-//                 ...state.galleryBlock,
-//                 {
-//                     galleryListOption: galleryListOption,
-//                     amount: [],
-//                     time: [],
-//                 },
-//             ],
-//         }));
-//     },
+    addEmptyGalleryBlock: () => {
+        set((state) => ({
+            galleryBlock: [
+                ...state.galleryBlock,
+                {
+                    galleryListOption: galleryListOption,
+                    amount: [],
+                    time: [],
+                },
+            ],
+        }));
+    },
 
-//     delGallery: (index) => {
-//         set((state) => {
-//             const updatedGallery = state.galleryBlock.filter(
-//                 (_, i) => i !== index
-//             );
-//             return { galleryBlock: updatedGallery || [] };
-//         });
-//     },
-// }));
+    delGallery: (index) => {
+        set((state) => {
+            const updatedGallery = state.galleryBlock.filter(
+                (_, i) => i !== index
+            );
+            return { galleryBlock: updatedGallery || [] };
+        });
+    },
+}));
 
 type State = {
     firstName: string;
