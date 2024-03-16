@@ -24,14 +24,6 @@ const Gallery = () => {
 	}
 
 	return (
-		// <>
-		// 	<input type="text"
-		// 		onChange={(e) => updateFirstName(e.currentTarget.value)}
-		// 		value={firstName}
-		// 	/>
-
-		// 	<p>hey fucking {firstName}!</p>
-		// </>
 
 		<div className={container}>
 			<h2 className={label}>Галерея</h2>

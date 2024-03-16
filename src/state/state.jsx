@@ -38,4 +38,15 @@ export const useGallery = create((set) => ({
             return { galleryBlock: updatedGallery || [] };
         });
     },
+
+    updateGalleryOption: (selectedOption) => {
+        set((state) => ({
+            galleryBlock: state.galleryBlock.map((item) => {
+                return {
+                    ...item,
+                    galleryListOption: selectedOption
+                };
+            })
+        }));
+    }
 }));
