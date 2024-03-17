@@ -20,7 +20,7 @@ const Gallery = () => {
 	}
 
 	const handleDeleteRow = (index) => {
-		// delGallery(index)
+		delGallery(index)
 	}
 
 	return (

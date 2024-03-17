@@ -8,12 +8,27 @@ const galleryListOption = [
     { gallery: "Класичний 25м тир" },
 ];
 
+const timeWorkGallery = [
+    { t: '00:30' },
+    { t: '01:00' },
+    { t: '01:30' },
+    { t: '02:00' },
+    { t: '02:30' },
+    { t: '03:00' },
+    { t: '03:30' },
+    { t: '04:00' },
+    { t: '04:30' },
+    { t: '05:00' },
+    { t: '05:30' },
+    { t: '06:00' },
+]
+
 export const useGallery = create((set) => ({
     galleryBlock: [
         {
             galleryListOption: galleryListOption,
             amount: [],
-            time: [],
+            time: timeWorkGallery,
         },
     ],
 
@@ -31,12 +46,9 @@ export const useGallery = create((set) => ({
     },
 
     delGallery: (index) => {
-        set((state) => {
-            const updatedGallery = state.galleryBlock.filter(
-                (_, i) => i !== index
-            );
-            return { galleryBlock: updatedGallery || [] };
-        });
+        set((state) => ({
+            galleryBlock: state.galleryBlock.filter((_, idx) => idx !== index)
+        }));
     },
 
     updateGalleryOption: (newItem, selectedOption) => {

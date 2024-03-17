@@ -13,10 +13,6 @@ const SelectGallery = ({ item }) => {
 		setList(item.galleryListOption)
 	}, [])
 
-	useEffect(() => {
-		console.log('list : ', list)
-	}, [list])
-
 	const handleOptionChange = (e) => {
 		const selectedValue = e.target.value;
 		const updatedGalleryListOption = item.galleryListOption.slice();
@@ -30,7 +26,6 @@ const SelectGallery = ({ item }) => {
 		}
 		const newItem = item
 		updateGalleryOption(newItem, updatedGalleryListOption)
-		console.log(list)
 	};
 
 	return (
