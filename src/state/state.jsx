@@ -63,5 +63,19 @@ export const useGallery = create((set) => ({
                 return item;
             })
         }));
+    },
+
+    updateTimeGallery: (newItem, selectedOption) => {
+        set((state) => ({
+            galleryBlock: state.galleryBlock.map((item) => {
+                if (newItem === item) {
+                    return {
+                        ...item,
+                        time: selectedOption
+                    };
+                }
+                return item;
+            })
+        }));
     }
 }));
