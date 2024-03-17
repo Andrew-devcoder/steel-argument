@@ -4,31 +4,43 @@ import { useGallery } from "../../../state/state";
 import style from "./SelectGallery.module.scss"
 
 const SelectGallery = ({ item }) => {
-	const { value, setValue } = useState('')
-	const { updateGalleryOption } = useGallery();
+	const [selectedOption, setSelectedOption] = useState('');
+	const [list, setList] = useState([])
+
+	const { updateGalleryOption } = useGallery()
+
+	useEffect(() => {
+		setList(item.galleryListOption)
+	}, [])
+
+	useEffect(() => {
+		console.log('list : ', list)
+	}, [list])
 
 	const handleOptionChange = (e) => {
 		const selectedValue = e.target.value;
-		updateGalleryOption(item, selectedValue);
-	};
+		const updatedGalleryListOption = item.galleryListOption.slice();
+		setList(updatedGalleryListOption)
+		const selectedIndex = updatedGalleryListOption.findIndex(option => option.gallery === selectedValue);
 
-	useEffect(() => { // Виправив параметри useEffect
-		if (Array.isArray(item.galleryListOption)) {
-			console.log(true);
+		if (selectedIndex !== -1) {
+			const selectedOption = updatedGalleryListOption.splice(selectedIndex, 1)[0];
+			updatedGalleryListOption.unshift(selectedOption);
+			setSelectedOption(selectedValue);
 		}
-	}, [])
-
+		const newItem = item
+		updateGalleryOption(newItem, updatedGalleryListOption)
+		console.log(list)
+	};
 
 	return (
 		<select
-			name={`gallery-${item}`}
-			id={`gallery-${item}`}
-			value={value}
-			onChange={(e) => handleOptionChange(e)} // Викликаємо метод для оновлення стану при зміні значення
+			value={selectedOption}
+			onChange={handleOptionChange}
 		>
-			{item.galleryListOption.map((option, optionIndex) => (
+			{list.map((option, index) => (
 				<option
-					key={optionIndex}
+					key={index}
 					value={option.gallery}
 				>
 					{option.gallery}
@@ -38,4 +50,4 @@ const SelectGallery = ({ item }) => {
 	);
 };
 
-export { SelectGallery };
+export { SelectGallery }

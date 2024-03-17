@@ -39,13 +39,16 @@ export const useGallery = create((set) => ({
         });
     },
 
-    updateGalleryOption: (selectedOption) => {
+    updateGalleryOption: (newItem, selectedOption) => {
         set((state) => ({
             galleryBlock: state.galleryBlock.map((item) => {
-                return {
-                    ...item,
-                    galleryListOption: selectedOption
-                };
+                if (newItem === item) {
+                    return {
+                        ...item,
+                        galleryListOption: selectedOption
+                    };
+                }
+                return item;
             })
         }));
     }
