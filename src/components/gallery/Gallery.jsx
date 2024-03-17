@@ -38,7 +38,7 @@ const Gallery = () => {
 
 							<AmountGallery item={item} />
 
-							<SelectTimeWorkGallery item={item} />
+							{/* <SelectTimeWorkGallery item={item} /> */}
 
 							<RxCrossCircled onClick={() => handleDeleteRow(index)} />
 

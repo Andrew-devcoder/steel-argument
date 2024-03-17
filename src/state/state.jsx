@@ -39,7 +39,7 @@ export const useGallery = create((set) => ({
                 {
                     galleryListOption: galleryListOption,
                     amount: [],
-                    time: [],
+                    time: timeWorkGallery,
                 },
             ],
         }));
