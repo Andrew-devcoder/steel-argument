@@ -1,0 +1,31 @@
+.dateDisplay {
+    margin-left: auto;
+    width: max-content;
+}
+
+.bio {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 5px 0;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 0;
+    font-weight: 700;
+
+    & label {
+        font-size: 18px;
+    }
+
+    & input {
+        width: 20px;
+        height: 20px;
+    }
+}

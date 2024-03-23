@@ -7,18 +7,17 @@ import { useState } from "react";
 
 import { TimePicker } from "../../components/time-picker/TimePicker";
 import { Gallery } from "../gallery/Gallery";
+import { Header } from "../header/Header";
 
 
 
 const Form = () => {
-	const date = new Date()
-	const year = date.getFullYear()
-	const month = date.getMonth() + 1
-	const day = date.getDate()
 
-	const dateToday = day + '/' + month + '/' + year
 
-	const [finishTime, setFinishTime] = useState('')
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		console.log(name)
+	}
 
 	const handlePrint = () => {
 		// const timeOverH = date.getHours()
@@ -27,28 +26,14 @@ const Form = () => {
 		// setFinishTime(timeOver)
 
 		window.print()
+
 	}
-
-	const [name, setName] = useState('')
-
-	const handleSubmit = (e) => {
-		e.preventDefault()
-		console.log(name)
-	}
-
 	return (
 		<>
 			<div className={style.container}>
 				<form onSubmit={handleSubmit}>
 
-					<div>{dateToday} {finishTime}   <input type="text" placeholder="ім'я інструктора" /></div>
-
-					<div><input placeholder="Призвіще клієнта" type="text" value={name} onChange={(e) => setName(e.target.value)} /></div>
-
-					<div>
-						<label htmlFor="individually">Індивідуальне заняття </label>
-						<input type="checkbox" id="individually" />
-					</div>
+					<Header />
 
 					<TimePicker />
 
