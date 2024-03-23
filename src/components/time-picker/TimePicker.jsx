@@ -19,7 +19,8 @@ const TimePicker = () => {
 		const update = []
 
 		for (let i = 0; i < 56; i += 5) {
-			update.push({ time: i });
+			let timeValue = i < 10 ? `0${i}` : `${i}`;
+			update.push({ time: timeValue });
 		}
 
 		setTimeM(update)
