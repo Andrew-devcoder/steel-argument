@@ -35,9 +35,8 @@ const TimePicker = () => {
 
 	return (
 		<>
+
 			<div className={style.wrapper}>
-				{/* <input type="number" placeholder="початок" />
-				<input type="number" placeholder="кінець" /> */}
 
 				<select name="timeH" >
 					{timeH.map((obj, index) => (
