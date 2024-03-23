@@ -28,7 +28,7 @@ export const useGallery = create((set) => ({
         {
             galleryListOption: galleryListOption,
             amount: [],
-            time: timeWorkGallery,
+            timeWorkGallery: timeWorkGallery,
         },
     ],
 
@@ -39,7 +39,7 @@ export const useGallery = create((set) => ({
                 {
                     galleryListOption: galleryListOption,
                     amount: [],
-                    time: timeWorkGallery,
+                    timeWorkGallery: timeWorkGallery,
                 },
             ],
         }));
@@ -71,11 +71,13 @@ export const useGallery = create((set) => ({
                 if (newItem === item) {
                     return {
                         ...item,
-                        time: selectedOption
+                        timeWorkGallery: selectedOption
                     };
                 }
                 return item;
             })
         }));
     }
+
+
 }));

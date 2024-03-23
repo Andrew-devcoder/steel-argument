@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useGallery } from "../../../state/state";
 import style from "./SelectGallery.module.scss"

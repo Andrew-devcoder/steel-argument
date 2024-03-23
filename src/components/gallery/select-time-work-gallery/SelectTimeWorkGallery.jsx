@@ -1,55 +1,48 @@
 import { useEffect, useState } from "react";
-
-import style from "./SelectTimeWorkGallery.module.scss"
 import { useGallery } from "../../../state/state";
+import style from "./SelectTimeWorkGallery.module.scss"
 
 const SelectTimeWorkGallery = ({ item }) => {
 	const [selectedOption, setSelectedOption] = useState('');
 	const [timeLocal, setTimeLocal] = useState([]);
-	const { updateTimeGallery } = useGallery()
+
+	const { updateTimeGallery } = useGallery();
 
 	useEffect(() => {
-		setTimeLocal(item.time)
-	}, [])
-
+		setTimeLocal(item.timeWorkGallery);
+	}, [item.timeWorkGallery]);
 
 	const handleChangeValue = (e) => {
-		const updateValue = e.target.value
-		const updateGalleryListTime = item.time.slice()
-		console.log(updateGalleryListTime)
-		setTimeLocal(updateGalleryListTime)
-		const selectedIndex = updateGalleryListTime.findIndex(option => option.time === updateValue);
+		const updateValue = e.target.value;
+		const updateGalleryListTime = item.timeWorkGallery.slice();
+		setTimeLocal(updateGalleryListTime);
+		const selectedIndex = updateGalleryListTime.findIndex(option => option.t === updateValue);
 
-		if (selectedIndex != -1) {
+		if (selectedIndex !== -1) {
 			const selectedOption = updateGalleryListTime.splice(selectedIndex, 1)[0];
 			updateGalleryListTime.unshift(selectedOption);
-			setSelectedOption(updateValue)
+			setSelectedOption(updateValue);
 		}
 
-		const newItem = item
-		updateTimeGallery(newItem, updateGalleryListTime)
-	}
+		const newItem = item;
+		updateTimeGallery(newItem, updateGalleryListTime);
+	};
 
 	return (
 		<select
-			// defaultValue='0:30'
 			value={selectedOption}
-			onChange={(e) => handleChangeValue(e)}
+			onChange={handleChangeValue}
 		>
-			{timeLocal.map((el) => {
-
-				return (
-					<option
-						key={`option-${Math.floor(Math.random() * 10000)}`}
-						value={el.t}
-					>
-						{el.t}
-					</option>
-				)
-
-			})}
+			{timeLocal.map((el, index) => (
+				<option
+					key={index}
+					value={el.t}
+				>
+					{el.t}
+				</option>
+			))}
 		</select>
-	)
+	);
 };
 
-export { SelectTimeWorkGallery }
+export { SelectTimeWorkGallery };
