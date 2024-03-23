@@ -3,16 +3,25 @@ import { Bullets } from "../bullets/Bullets";
 import { PistolList } from "../guns/pistols/pistol-list/PistolList";
 import style from "./Form.module.scss"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { TimePicker } from "../../components/time-picker/TimePicker";
 import { Gallery } from "../gallery/Gallery";
 import { Header } from "../header/Header";
+import { useGuns } from "../../state/state";
+import { Guns } from "../guns/Guns";
 
 
 
 const Form = () => {
+	const { pistolList, riflesList } = useGuns()
+	const [pistolListLocal, setPistolListLocal] = useState([])
+	const [riflesListLocal, setRiflesListLocal] = useState([])
 
+	useEffect(() => {
+		setPistolListLocal(pistolList)
+		setRiflesListLocal(riflesList)
+	}, [])
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -39,7 +48,9 @@ const Form = () => {
 
 					<Gallery />
 
-					<PistolList />
+					{/* <PistolList pistolListLocal={pistolListLocal} /> */}
+					<Guns gunList={pistolListLocal} />
+					<Guns gunList={riflesListLocal} />
 
 					<Bullets />
 

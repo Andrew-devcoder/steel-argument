@@ -1,5 +1,7 @@
 .container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     padding: 20px 10px;
     border: 1px solid grey;
     border-radius: 8px;
@@ -13,6 +15,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    padding: 5px 0;
 }
 
 .label {
