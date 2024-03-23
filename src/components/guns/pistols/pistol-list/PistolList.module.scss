@@ -7,6 +7,12 @@
     position: relative;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
 .label {
     margin: 0;
     padding: 0 2px;

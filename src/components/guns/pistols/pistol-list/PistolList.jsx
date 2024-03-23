@@ -4,26 +4,87 @@ import style from "./PistolList.module.scss"
 
 const pistolListOption = [
 	{ pistol: 'пістолети...' },
-	{ pistol: 'glock 17/19/19x' },
-	{ pistol: 'glock 45' },
-	{ pistol: 'glock 43x' }
+	{
+		pistol: 'Smith & Wesson / CZ P-07',
+		cal: '22lr',
+		price: '300 грн'
+	},
+	{
+		pistol: 'Glock RBF Custom',
+		cal: '22lr',
+		price: '400 грн'
+	},
+	{
+		pistol: 'Sig Sauer X-5',
+		cal: '9x19',
+		price: '950 грн'
+	},
+	{
+		pistol: 'Alien',
+		cal: '9x19',
+		price: '1 000 грн'
+	},
+	{
+		pistol: 'Sig Sauer P320',
+		cal: '9x19',
+		price: '400 грн'
+	},
+	{
+		pistol: 'CZ 75 Shadow 2',
+		cal: '9x19',
+		price: '600 грн'
+	},
+	{
+		pistol: 'Beretta M9',
+		cal: '9x19',
+		price: '500 грн'
+	},
+	{
+		pistol: 'glock 17/19/19x',
+		cal: '9x19',
+		price: '300 грн'
+	},
+	{
+		pistol: 'glock 45/43x',
+		cal: '9x19',
+		price: '400 грн'
+	},
+	{
+		pistol: 'Kimber',
+		cal: '.45ACP',
+		price: '900 грн'
+	},
+	{
+		pistol: 'Arsenal FireArms',
+		cal: '.45ACP',
+		price: '1 500 грн'
+	},
 ]
 
-const { container, label } = style
+const { container, wrapper, label } = style
 
 const PistolList = () => {
-	const [pistolList, setPistolList] = useState([{ pistol: '' }]);
+	const [pistolList, setPistolList] = useState([{ pistol: '', cal: '', price: '' }]);
+
+	// const handlePistol = (e, index) => {
+	// 	const selectedPistol = e.target.value;
+	// 	const updatedList = [...pistolList];
+	// 	updatedList[index] = { ...updatedList[index], pistol: selectedPistol };
+	// 	setPistolList(updatedList);
+	// }
+
 
 	const handlePistol = (e, index) => {
 		const selectedPistol = e.target.value;
+		const selectedOption = pistolListOption.find(option => option.pistol === selectedPistol);
 		const updatedList = [...pistolList];
-		updatedList[index] = { pistol: selectedPistol };
+		updatedList[index] = { ...updatedList[index], pistol: selectedPistol, cal: selectedOption.cal, price: selectedOption.price };
 		setPistolList(updatedList);
 	}
 
 	const addPistolList = (e) => {
 		e.preventDefault()
-		setPistolList([...pistolList, { pistol: '' }])
+		setPistolList([...pistolList, { pistol: '', cal: '', price: '' }])
 	}
 
 	return (
@@ -32,7 +93,7 @@ const PistolList = () => {
 
 			<div>
 				{pistolList.map((item, index) => (
-					<div key={index}>
+					<div key={index} className={wrapper}>
 						<select
 							name={`pistol-${index}`}
 							id={`pistol-${index}`}
@@ -40,11 +101,13 @@ const PistolList = () => {
 							onChange={(e) => handlePistol(e, index)}
 						>
 							{pistolListOption.map((option, optionIndex) => (
-								<option key={optionIndex} value={option.pistol}>
+								<option key={optionIndex} value={option.pistol} data-cal={option.cal} data-price={option.price}>
 									{option.pistol}
 								</option>
 							))}
 						</select>
+						<div>{item.cal}</div>
+						<div>{item.price}</div>
 					</div>
 				))}
 			</div>
