@@ -73,7 +73,7 @@ const Guns = ({ gunList }) => {
 				))}
 			</div>
 
-			<button onClick={addGunList}>додати пістолет</button>
+			<button onClick={addGunList}>додати</button>
 		</div>
 	)
 };

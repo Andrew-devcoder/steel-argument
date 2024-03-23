@@ -1,6 +1,5 @@
 
 import { Bullets } from "../bullets/Bullets";
-import { PistolList } from "../guns/pistols/pistol-list/PistolList";
 import style from "./Form.module.scss"
 
 import { useEffect, useState } from "react";
