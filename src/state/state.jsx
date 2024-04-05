@@ -177,3 +177,22 @@ export const useGuns = create((set) => ({
         },
     ]
 }))
+
+
+export const usePrint = create((set) => ({
+    nameClient: '',
+
+    setNameClient: (name) => {
+        set(() => ({
+            nameClient: name
+        }))
+    },
+
+    nameInstr: '',
+
+    setNameInstr: (name) => {
+        set(() => ({
+            nameInstr: name
+        }))
+    },
+}))

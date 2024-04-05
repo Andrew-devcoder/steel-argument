@@ -9,7 +9,8 @@ import { Gallery } from "../gallery/Gallery";
 import { Header } from "../header/Header";
 import { useGuns } from "../../state/state";
 import { Guns } from "../guns/Guns";
-import { Additionally } from "./additionally/Additionally";
+import { Additionally } from "../additionally/Additionally";
+import { Link } from "react-router-dom";
 
 
 
@@ -58,11 +59,14 @@ const Form = () => {
 
 					{/* <h3>інше <textarea cols={43} maxLength={300} /></h3> */}
 				</form>
-				<button
-					onClick={handlePrint}
-				>
-					На друк
-				</button>
+				<Link to="/print">
+
+					<button
+					// onClick={handlePrint}
+					>
+						На друк
+					</button>
+				</Link>
 			</div>
 
 		</>
