@@ -18,13 +18,9 @@
     background-color: white;
 }
 
-.wrapper {
+.row {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-
-    & input {
-        max-width: 150px;
-    }
+    gap: 10px;
 }

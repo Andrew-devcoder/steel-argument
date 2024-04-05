@@ -9,6 +9,7 @@ import { Gallery } from "../gallery/Gallery";
 import { Header } from "../header/Header";
 import { useGuns } from "../../state/state";
 import { Guns } from "../guns/Guns";
+import { Additionally } from "./additionally/Additionally";
 
 
 
@@ -53,10 +54,7 @@ const Form = () => {
 
 					<Bullets />
 
-					<h3>мішень  <input type="number" style={{ width: '40px' }} /></h3>
-					<h3>мішень кабан  <input type="number" style={{ width: '40px' }} /></h3>
-					<h3>активні навушники  <input type="number" style={{ width: '40px' }} /></h3>
-
+					<Additionally />
 
 					{/* <h3>інше <textarea cols={43} maxLength={300} /></h3> */}
 				</form>
