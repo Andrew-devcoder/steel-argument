@@ -1,9 +1,10 @@
 
-// import style from "./Print.module.scss"
+import style from "./Print.module.scss"
 
 import { useEffect } from "react";
 import { useGallery, usePrint } from "../../state/state";
 
+const { header } = style
 
 const Print = () => {
 	const date = new Date()
@@ -15,18 +16,21 @@ const Print = () => {
 
 	const { galleryBlock } = useGallery()
 
-	const { nameClient, nameInstr } = usePrint()
+	const { nameClient, nameInstr, indivCheck, selectTime } = usePrint()
 
 	useEffect(() => {
-		console.log(galleryBlock)
+		console.log(indivCheck)
 	}, [])
 
 	return (
 		<>
-			<div>{dateToday}</div>
-			<div>{nameClient}</div>
-			<div>{nameInstr}</div>
-
+			<div className={header}>
+				<div>{dateToday}</div>
+				<div>{nameClient}</div>
+				<div>{nameInstr}</div>
+			</div>
+			<div>{indivCheck ? 'Індивідульне заняття 1 000грн' : ''}</div>
+			<div>{selectTime}</div>
 		</>
 	)
 };

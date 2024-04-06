@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./TimePicker.module.scss"
+import { usePrint } from "../../state/state";
 
 const TimePicker = () => {
 	const [timeH, setTimeH] = useState([])
@@ -33,12 +34,19 @@ const TimePicker = () => {
 		console.log(timeM)
 	}, []);
 
+	const { selectTime, setSelectedTime } = usePrint()
+
+	const handleChangeTime = (e) => {
+		const { name, value } = e.target;
+		setSelectedTime(value);
+	}
+
 	return (
 		<>
 
 			<div className={style.wrapper}>
 
-				<select name="timeH" >
+				<select name="timeH" onChange={handleChangeTime} >
 					{timeH.map((obj, index) => (
 						<option key={index} value={obj.time}>
 							{obj.time}

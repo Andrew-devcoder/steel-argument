@@ -195,4 +195,20 @@ export const usePrint = create((set) => ({
             nameInstr: name
         }))
     },
+
+    indivCheck: false,
+
+    setIndivCheck: (boolean) => {
+        set(() => ({
+            indivCheck: boolean
+        }))
+    },
+
+    selectTime: '',
+
+    setSelectedTime: (time) => {
+        set(() => ({
+            selectTime: time
+        }))
+    }
 }))

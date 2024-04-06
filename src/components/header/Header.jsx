@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Header.module.scss"
 import { usePrint } from "../../state/state";
 
@@ -14,7 +14,7 @@ const Header = () => {
 
 	const dateToday = day + '/' + month + '/' + year
 
-	const { setNameClient, setNameInstr } = usePrint()
+	const { nameClient, setNameClient, nameInstr, setNameInstr, indivCheck, setIndivCheck } = usePrint()
 
 
 	const [nameLocalClient, setNameLocalClient] = useState('')
@@ -29,6 +29,18 @@ const Header = () => {
 	const handleNameInstr = () => {
 		setNameInstr(nameLocalInstr)
 	}
+
+	useEffect(() => {
+		setNameLocalClient(nameClient || '');
+	}, [nameClient]);
+
+	useEffect(() => {
+		setNameLocallInstr(nameInstr || '');
+	}, [nameInstr]);
+
+	const handleCheckboxChange = (e) => {
+		setIndivCheck(e.target.checked);
+	};
 
 	return (
 		<>
@@ -53,7 +65,12 @@ const Header = () => {
 
 			<div className={checkbox}>
 				<label htmlFor="individually">Індивідуальне заняття </label>
-				<input type="checkbox" id="individually" />
+				<input
+					type="checkbox"
+					id="individually"
+					checked={indivCheck}
+					onChange={handleCheckboxChange}
+				/>
 			</div>
 
 		</>
